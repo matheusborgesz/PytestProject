@@ -1,11 +1,12 @@
+from user import *
 import re
 
-regex = r'^[A-Z][a-zA-Z0-9]{0,29}$'
+regex = "^(?!.*[_\W]).{1,30}$"
 
-def checkUser(user):
-    if re.search(regex, user):
+def checkUser(usuario):
+    if usuario[0].isupper() and re.match(regex, usuario):
+        print("Nome de usuário válido.")
         return True
     else:
+        print("O nome de usuário não atende aos requisitos.")
         return False
-
-print (checkUser(user))
